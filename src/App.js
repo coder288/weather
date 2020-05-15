@@ -27,7 +27,7 @@ function App({dispatch}) {
             localStorage.setItem('position', JSON.stringify(coords));
             console.log('Новое место');
             // Запрашиваем погоду
-            dispatch(fetchWeather());
+            dispatch(fetchWeather({ source: 1, coords }));
             return;
         }
 
@@ -42,7 +42,7 @@ function App({dispatch}) {
             let now = Date.now();
 
             if ( (now - lastDate) > 7200000 ) {
-                dispatch(fetchWeather());
+                dispatch(fetchWeather({ source: 1, coords }));
                 console.log('Нужно обновиться');
             }
             else {

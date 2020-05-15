@@ -3,8 +3,9 @@ export const loading = value => ({
     payload: value
 });
 
-export const fetchWeather = () => ({
-    type: 'FETCH_WEATHER'
+export const fetchWeather = (args) => ({
+    type: 'FETCH_WEATHER',
+    args
 });
 
 export const saveWeatherInState = weather => ({

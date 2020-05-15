@@ -3,23 +3,20 @@ import {saveWeatherInState, loading} from "../actions/actions";
 
 
 // Запрашиваем погоду
-const fetchWeatherFn = () => {
+const fetchWeatherFn = ({args}) => {
 
     let formData = new FormData();
-    formData.append('coords', JSON.stringify({
-        lat: 55.18367385864258,
-        lng: 30.20479011535645
-    }));
+    formData.append('coords', JSON.stringify(args.coords));
 
-    return fetch(`http://beta.mikron.by/w1/`, {
+    return fetch(`http://beta.mikron.by/w${args.source}/`, {
         method: 'post',
         body: formData
     })
         .then(resp => resp.json());
 };
 
-function* workerFetchWeather() {
-    const responseWeather = yield call(fetchWeatherFn);
+function* workerFetchWeather(args) {
+    const responseWeather = yield call( () => fetchWeatherFn(args));
     yield put(saveWeatherInState(responseWeather));
     // Записываем погоду в localStorage
     localStorage.setItem('weather', JSON.stringify(responseWeather));
