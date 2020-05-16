@@ -5,6 +5,7 @@ import './weather.css';
 const Weather = () => {
 
     let weatherData = useSelector(state => state.weather);
+    let city = useSelector(state => state.city);
 
     let months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
@@ -37,7 +38,7 @@ const Weather = () => {
 
     return(
         <div className='weather'>
-            <div className="weather__title">Погода в Городе</div>
+            <div className="weather__title">Погода {city ? `${city}` : '' }</div>
             <div className="weather__days">
                 <div className="wth__descr-wrap">
                     <div className="wth__descr-items">
