@@ -7,12 +7,13 @@ import './reset.css';
 
 import Header from './components/Header/Header';
 import Loader from './components/Loader/Loader';
-import {fetchWeather, loading, saveWeatherInState} from "./redux/actions/actions";
+import { fetchWeather, loading, saveCityNameInState, saveWeatherInState } from "./redux/actions/actions";
 import Weather from "./components/Weather/Weather";
 
 
 function App({dispatch}) {
-    const isLoading = useSelector(state => state.loading);
+    const isLoading = useSelector(state => state.loading); console.log(isLoading);
+    const source = useSelector(state => state.source);
 
     // Получаем координаты пользователя и записываем их в localStorage
     navigator.geolocation.getCurrentPosition( position => {
@@ -26,7 +27,7 @@ function App({dispatch}) {
             localStorage.setItem('position', JSON.stringify(coords));
             console.log('Новое место');
             // Запрашиваем погоду
-            dispatch(fetchWeather({ source: 2, coords }));
+            dispatch(fetchWeather({ source, coords }));
             return;
         }
 
@@ -41,16 +42,20 @@ function App({dispatch}) {
             let now = Date.now();
 
             if ( (now - lastDate) > 7200000 ) {
-                dispatch(fetchWeather({ source: 2, coords }));
+                dispatch(fetchWeather({ source, coords }));
                 console.log('Нужно обновиться');
             }
             else {
                 console.log('Прошло не так много времени');
+                dispatch(loading(false));
+                if (localStorage.getItem('cityName')) {
+                    dispatch(saveCityNameInState(localStorage.getItem('cityName')));
+                }
             }
         }
         // Если получены координаты нового места, запрашиваем погоду
         else {
-            dispatch(fetchWeather({ source: 2, coords }));
+            dispatch(fetchWeather({ source, coords }));
         }
 
         // Проверяем есть ли в localStorage погода
@@ -60,10 +65,9 @@ function App({dispatch}) {
             dispatch(saveWeatherInState( JSON.parse(localStorage.getItem('weather')) ));
         }
         else {
-            dispatch(fetchWeather({ source: 2, coords }));
+            dispatch(fetchWeather({ source, coords }));
         }
 
-        dispatch(loading(false));
     } );
 
     if (isLoading) {

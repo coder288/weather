@@ -22,3 +22,13 @@ export const saveCityNameInState = city => ({
     type: 'SAVE_CITY_NAME_IN_STATE',
     payload: city
 });
+
+export const triggerSources = choice => ({
+    type: 'TRIGGER_SOURCES',
+    payload: choice
+});
+
+export const changeSource = source => ({
+    type: 'CHANGE_SOURCE',
+    payload: source
+});

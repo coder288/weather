@@ -1,7 +1,16 @@
 .header__wrapper { height: 50px; background: #09f; }
-.header { max-width: 1000px; padding: 0 50px; margin: 0 auto; }
+.header { max-width: 1000px; padding: 0 50px; margin: 0 auto; position: relative; }
 .header__title { font: 400 35px/50px arial; color: #fff; }
+.header__source { position: absolute; right: 50px; }
+.header__source-ico { width: 35px; height: 35px; background: url(i/dots.svg) no-repeat 50% / 25px; display: block; cursor: pointer; opacity: .5; transition: opacity 200ms; margin: 7px 0 0 0; }
+.header__source-ico:hover { opacity: 1; }
+.header__source-items { margin: 5px 0 0 0; position: absolute; right: 0; z-index: 2; visibility: hidden; opacity: 0; background: #fff; max-height: 0; overflow: hidden; -webkit-overflow-scrolling: touch; border-radius: 3px; box-shadow: 0 2px 8px 0 rgba(0,0,0,.25); transform: translateY(10px); transition: transform 0.15s ease-out,opacity 0.15s ease-out,max-height 0s 0.15s; }
+.header__source-items--select { max-height: 270px; visibility: visible; opacity: 1; overflow: auto; transform: translateY(0); transition: transform 0.15s ease-out,opacity 0.15s ease-out,max-height 0s; }
+.header__source-item { font: 400 15px/17px arial; cursor: pointer; padding: 10px 10px; position: relative; border-bottom: 1px solid #ccc; }
+.header__source-item:hover { background-color: rgba(255,228,132,.3); }
 
 @media screen and (max-width: 1000px) {
     .header { padding: 0 20px; }
+    .header__source { right: 15px; }
+    .header__source-item { font: 18px/26px arial; }
 }

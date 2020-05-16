@@ -26,13 +26,19 @@ function* workerFetchWeather(args) {
         const responseWeather = yield call( () => fetchWeatherFn(args) );
         yield put(saveWeatherInState(responseWeather));
 
-        const cityName = yield call( () => geocoder(args) );
-        yield put(saveCityNameInState(cityName.response.GeoObjectCollection.featureMember[2].GeoObject.name));
+        if (responseWeather.success) {
+            const cityName = yield call( () => geocoder(args) );
+            const city = cityName.response.GeoObjectCollection.featureMember[2].GeoObject.name;
+            yield put(saveCityNameInState(city));
 
-        // Записываем погоду в localStorage
-        localStorage.setItem('weather', JSON.stringify(responseWeather));
-        // Записываем время записи погоды в localStorage
-        localStorage.setItem('lastWeatherQuery', responseWeather.now.toString());
+            // Записываем название города в localStorage
+            localStorage.setItem('cityName', city);
+            // Записываем погоду в localStorage
+            localStorage.setItem('weather', JSON.stringify(responseWeather));
+            // Записываем время записи погоды в localStorage
+            localStorage.setItem('lastWeatherQuery', responseWeather.now.toString());
+        }
+
         yield put(loading(false));
     }
     catch (error) {
