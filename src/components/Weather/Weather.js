@@ -29,6 +29,12 @@ const Weather = () => {
         'cloudy-and-snow': 'снег'
     };
 
+    if (!weatherData.days) {
+        return(
+            <div className='weather__alert'>Возникла ошибка!<br /><br />Попробуйте обновить страницу.</div>
+        );
+    }
+
     return(
         <div className='weather'>
             <div className="weather__title">Погода в Городе</div>
@@ -39,9 +45,8 @@ const Weather = () => {
                         <div className="wth__descr wth__descr--night">Ночь</div>
                     </div>
                 </div>
-
                 {
-                    weatherData.days.map(day => {
+                    weatherData.days && weatherData.days.map(day => {
                         return(
                             <div className="wth__day" key={day.date}>
 
@@ -99,7 +104,6 @@ const Weather = () => {
                                 {/*/ колонка с погодой ночью*/}
                             </div>
                         )
-                        console.log(day);
                     })
                 }
             </div>

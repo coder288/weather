@@ -1,3 +1,7 @@
 .header__wrapper { height: 50px; background: #09f; }
 .header { max-width: 1000px; padding: 0 50px; margin: 0 auto; }
 .header__title { font: 400 35px/50px arial; color: #fff; }
+
+@media screen and (max-width: 1000px) {
+    .header { padding: 0 20px; }
+}

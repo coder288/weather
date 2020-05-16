@@ -16,13 +16,19 @@ const fetchWeatherFn = ({args}) => {
 };
 
 function* workerFetchWeather(args) {
-    const responseWeather = yield call( () => fetchWeatherFn(args));
-    yield put(saveWeatherInState(responseWeather));
-    // Записываем погоду в localStorage
-    localStorage.setItem('weather', JSON.stringify(responseWeather));
-    // Записываем время записи погоды в localStorage
-    localStorage.setItem('lastWeatherQuery', responseWeather.now.toString());
-    yield put(loading(false));
+    try {
+        const responseWeather = yield call( () => fetchWeatherFn(args));
+        yield put(saveWeatherInState(responseWeather));
+        // Записываем погоду в localStorage
+        localStorage.setItem('weather', JSON.stringify(responseWeather));
+        // Записываем время записи погоды в localStorage
+        localStorage.setItem('lastWeatherQuery', responseWeather.now.toString());
+        yield put(loading(false));
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 
 export function* watchFetchWeather() {
