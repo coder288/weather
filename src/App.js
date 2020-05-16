@@ -26,7 +26,7 @@ function App({dispatch}) {
             localStorage.setItem('position', JSON.stringify(coords));
             console.log('Новое место');
             // Запрашиваем погоду
-            dispatch(fetchWeather({ source: 1, coords }));
+            dispatch(fetchWeather({ source: 2, coords }));
             return;
         }
 
@@ -41,7 +41,7 @@ function App({dispatch}) {
             let now = Date.now();
 
             if ( (now - lastDate) > 7200000 ) {
-                dispatch(fetchWeather({ source: 1, coords }));
+                dispatch(fetchWeather({ source: 2, coords }));
                 console.log('Нужно обновиться');
             }
             else {
@@ -50,7 +50,7 @@ function App({dispatch}) {
         }
         // Если получены координаты нового места, запрашиваем погоду
         else {
-            dispatch(fetchWeather({ source: 1, coords }));
+            dispatch(fetchWeather({ source: 2, coords }));
         }
 
         // Проверяем есть ли в localStorage погода
@@ -60,16 +60,10 @@ function App({dispatch}) {
             dispatch(saveWeatherInState( JSON.parse(localStorage.getItem('weather')) ));
         }
         else {
-            dispatch(fetchWeather({ source: 1, coords }));
+            dispatch(fetchWeather({ source: 2, coords }));
         }
 
-
-
         dispatch(loading(false));
-
-        // OpenWeather KEY
-        const KEY = '1cc70ab40065531978208c146bd12990';
-
     } );
 
     if (isLoading) {

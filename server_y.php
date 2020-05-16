@@ -30,7 +30,6 @@ $dayParts = [];
 foreach ($server_output['forecasts'] as $key => $value) {
     $dayParts[$key] = [
         'date' => $value['date'],
-//         'value' => $value['parts']
         'morning' => [
             'temp' => $value['parts']['morning']['temp_min'] . '°' . '…' . $value['parts']['morning']['temp_max'] . '°',
             'condition' => $value['parts']['morning']['condition']
@@ -54,5 +53,6 @@ foreach ($server_output['forecasts'] as $key => $value) {
 $result = [];
 $result['days'] = $dayParts;
 $result['now'] = $server_output['now'] . '000';
+$result['success'] = true;
 
 print_r(json_encode($result, 256));
