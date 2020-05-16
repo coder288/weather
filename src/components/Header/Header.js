@@ -1,10 +1,12 @@
 import React from 'react';
 import './header.css';
 
-const Header = (props) => {
+const Header = () => {
     return(
-        <div className='header'>
-            <div className="header__title">Weather</div>
+        <div className='header__wrapper'>
+            <div className='header'>
+                <div className="header__title">Weather</div>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,148 @@
+.weather { max-width: 1000px; margin: 0 auto; }
+/* иконки для обозначения погоды */
+/* Ясно */
+.wth__icon--clear, .wth__temp--clear:after { background-image: url(i/sun.svg); }
+.wth__col--night > .wth__temp--clear:after { background-image: url(i/moon.svg); }
+
+/* Малооблачно */
+.wth__icon--partly-cloudy, .wth__temp--partly-cloudy:after { background-image: url(i/sun_cloudy.svg); }
+.wth__col--night > .wth__temp--partly-cloudy:after { background-image: url(i/night_cloudy.svg); }
+
+/* Облачно с прояснениями */
+.wth__icon--cloudy, .wth__temp--cloudy:after { background-image: url(i/sun_cloudy.svg); }
+.wth__col--night > .wth__temp--cloudy:after { background-image: url(i/night_cloudy.svg); }
+
+/* Пасмурно */
+.wth__icon--overcast, .wth__temp--overcast:after { background-image: url(i/cloudy.svg); }
+.wth__col--night > .wth__temp--overcast:after { background-image: url(i/night_cloudy.svg); }
+
+/* Небольшой дождь */
+.wth__icon--partly-cloudy-and-light-rain, .wth__temp--partly-cloudy-and-light-rain:after { background-image: url(i/sun_rain.svg); }
+.wth__col--night > .wth__temp--cloudy-and-light-rain:after { background-image: url(i/night_rain.svg); }
+
+/* Дождь */
+.wth__icon--partly-cloudy-and-rain, .wth__temp--partly-cloudy-and-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--partly-cloudy-and-rain:after { background-image: url(i/night_rain.svg); }
+.wth__icon--cloudy-and-rain, .wth__temp--cloudy-and-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--cloudy-and-rain:after { background-image: url(i/night_rain.svg); }
+
+/* Сильный дождь */
+.wth__icon--overcast-and-rain, .wth__temp--overcast-and-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--overcast-and-rain:after { background-image: url(i/night_rain.svg); }
+
+/* Сильный дождь, гроза */
+.wth__icon--overcast-thunderstorms-with-rain, .wth__temp--overcast-thunderstorms-with-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--overcast-thunderstorms-with-rain:after { background-image: url(i/night_rain.svg); }
+
+/* Небольшой дождь */
+.wth__icon--cloudy-and-light-rain, .wth__temp--cloudy-and-light-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--cloudy-and-light-rain:after { background-image: url(i/night_rain.svg); }
+.wth__icon--overcast-and-light-rain, .wth__temp--overcast-and-light-rain:after { background-image: url(i/rain.svg); }
+.wth__col--night > .wth__temp--overcast-and-light-rain:after { background-image: url(i/night_rain.svg); }
+
+/* Дождь со снегом */
+.wth__icon--overcast-and-wet-snow, .wth__temp--overcast-and-wet-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--overcast-and-wet-snow:after { background-image: url(i/night_snow.svg); }
+
+/* Небольшой снег */
+.wth__icon--partly-cloudy-and-light-snow, .wth__temp--partly-cloudy-and-light-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--partly-cloudy-and-light-snow:after { background-image: url(i/night_snow.svg); }
+
+/* Снег */
+.wth__icon--partly-cloudy-and-snow, .wth__temp--partly-cloudy-and-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--partly-cloudy-and-snow:after { background-image: url(i/night_snow.svg); }
+.wth__icon--cloudy-and-snow, .wth__temp--cloudy-and-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--cloudy-and-snow:after { background-image: url(i/night_snow.svg); }
+
+/* Снегопад */
+.wth__icon--overcast-and-snow, .wth__temp--overcast-and-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--overcast-and-snow:after { background-image: url(i/night_snow.svg); }
+
+/*  Небольшой снег */
+.wth__icon--cloudy-and-light-snow, .wth__temp--cloudy-and-light-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--cloudy-and-light-snow:after { background-image: url(i/night_snow.svg); }
+.wth__icon--overcast-and-light-snow, .wth__temp--overcast-and-light-snow:after { background-image: url(i/snow.svg); }
+.wth__col--night > .wth__temp--overcast-and-light-snow:after { background-image: url(i/night_snow.svg); }
+
+/* DESKTOP */
+@media screen and (min-width: 1001px) {
+    /* Заголовок */
+    .weather__title { font: 600 45px/56px arial; margin: 25px 0 28px 0; text-align: center; }
+
+    /* скрываем шапку день / ночь для мобильной версии */
+    .wth__descr { display: none; }
+
+
+    /* погода на 10 дней */
+    .wth__days { border-radius: 4px; overflow: hidden; position: relative; background: #fff; margin: 0 0 20px 0; }
+    .wth__day { font: 0/0 a; border-bottom: 1px solid #ccc; padding: 25px 10px 30px 25px; transition: background-color 250ms; }
+    .wth__day:last-child { border-bottom: none; }
+
+    /* стили колонок */
+    .wth__col { display: inline-block; vertical-align: top; width: 20%; padding: 0 30px 0 0; position: relative; }
+    .wth__col:last-child { padding-right: 0; }
+    .wth__col--date { position: relative; bottom: 5px; margin: 0 3% 0 0; }
+
+    /* дата */
+    .wth__date { font: 48px/48px "source sans pro"; display: inline-block; vertical-align: top; margin: 0 10px 0 0; letter-spacing: -0.05em; }
+    .wth__meta-date { display: inline-block; vertical-align: top; }
+    .wth__month { font: 16px/20px "source sans pro"; padding: 5px 0 0 0; }
+    .wth__week { font: 16px/16px "source sans pro"; color: #ccc; }
+
+    /* уменьшаем ширину последнего элемента для добавления этого отступа между датой */
+    .wth__col--night { width: 17%; }
+
+    /* скрываем блок с иконками для мобильной берсии */
+    .wth__col--icon { display: none; }
+
+    /* время суток */
+    .wth__time { font: 18px/21px "source sans pro"; margin: 0 0 15px 0; }
+    /* температура */
+    .wth__temp { font: 18px/31px "source sans pro"; padding: 0 45px 0 0; margin: 0 0 10px 0; }
+    /* текстовое описание погоды */
+    .wth__text-descr { font: 300 15px/17px "source sans pro"; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
+    .wth__temp:after { content: ""; width: 35px; height: 35px; background-repeat: no-repeat; position: absolute; margin: -2px 0 0 10px; }
+
+
+    /* HOVER */
+    .wth__day:hover { background: #fdfff2; }
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 1000px) {
+    /* Заголовок */
+    .weather__title { font: 600 28px/32px arial; margin: 25px 0 28px 0; text-align: center; }
+
+    /* стили шапки день / ночь для мобилы */
+    .wth__descr-wrap { padding: 0 10px; }
+    .wth__descr-items { font: 0/0 a; text-align: right; }
+    .wth__descr { display: inline-block; vertical-align: top; font: 14px/16px "source sans pro"; width: 25%; text-align: center; }
+
+
+    /* погода на 10 дней */
+    .wth__days { border-radius: 4px; overflow: hidden; position: relative; background: #fff; margin: 0 0 20px 0; }
+    .wth__day { font: 0/0 a; border-bottom: 1px solid #ccc; padding: 15px 10px; transition: background-color 250ms; }
+    .wth__day:last-child { border-bottom: none; }
+
+    /* стили колонок */
+    .wth__col { display: inline-block; vertical-align: top; width: 25%; }
+    .wth__icon { width: 50px; height: 50px; display: block; margin: 0 auto; background-repeat: no-repeat; background-position: 50% 50%; background-size: 45px; }
+    .wth__col--morning, .wth__col--evening { display: none; }
+    .wth__col--night { color: #ccc; }
+
+    /* дата */
+    .wth__date { font: 36px/36px "source sans pro"; letter-spacing: -0.05em; }
+    .wth__month { font: 16px/16px "source sans pro"; }
+    .wth__week { font: 16px/16px "source sans pro"; color: #ccc; }
+
+
+    /* время суток */
+    .wth__time { display: none; }
+    /* температура */
+    .wth__temp { font: 18px/21px "source sans pro"; text-align: center; }
+    .wth__temp:after { display: none; }
+    .wth__temp div { line-height: 15px; margin: 0 0 8px 0; }
+    /* текстовое описание погоды */
+    .wth__text-descr { display: none;  }
+}

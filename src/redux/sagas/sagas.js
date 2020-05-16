@@ -22,7 +22,6 @@ function* workerFetchWeather(args) {
     localStorage.setItem('weather', JSON.stringify(responseWeather));
     // Записываем время записи погоды в localStorage
     localStorage.setItem('lastWeatherQuery', responseWeather.now.toString());
-
     yield put(loading(false));
 }
 
