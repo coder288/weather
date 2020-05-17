@@ -12,11 +12,11 @@ import Weather from "./components/Weather/Weather";
 
 
 function App({dispatch}) {
-    const isLoading = useSelector(state => state.loading); console.log(isLoading);
+    const isLoading = useSelector(state => state.loading);
     const source = useSelector(state => state.source);
 
-    // Получаем координаты пользователя и записываем их в localStorage
-    navigator.geolocation.getCurrentPosition( position => {
+    // Обработка координат, если получилось их получить из navigator
+    const geoSuccess = position => {
         let coords = { lat: position.coords.latitude, lng: position.coords.longitude };
 
         // Проверяем есть ли координаты в localStorage
@@ -68,7 +68,15 @@ function App({dispatch}) {
             dispatch(fetchWeather({ source, coords }));
         }
 
-    } );
+    };
+
+    const geoError = error => {
+        dispatch(loading(false));
+        console.log(error);
+    };
+
+    // Получаем координаты пользователя и записываем их в localStorage
+    navigator.geolocation.getCurrentPosition( geoSuccess, geoError );
 
     if (isLoading) {
         return <Loader />
