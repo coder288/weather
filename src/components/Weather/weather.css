@@ -94,10 +94,10 @@
     .wth__col--date { position: relative; bottom: 5px; margin: 0 3% 0 0; }
 
     /* дата */
-    .wth__date { font: 48px/48px "source sans pro"; display: inline-block; vertical-align: top; margin: 0 10px 0 0; letter-spacing: -0.05em; }
+    .wth__date { font: 48px/48px arial; display: inline-block; vertical-align: top; margin: 0 10px 0 0; letter-spacing: -0.05em; }
     .wth__meta-date { display: inline-block; vertical-align: top; }
-    .wth__month { font: 16px/20px "source sans pro"; padding: 5px 0 0 0; }
-    .wth__week { font: 16px/16px "source sans pro"; color: #ccc; }
+    .wth__month { font: 16px/20px arial; padding: 5px 0 0 0; }
+    .wth__week { font: 16px/16px arial; color: #ccc; }
 
     /* уменьшаем ширину последнего элемента для добавления этого отступа между датой */
     .wth__col--night { width: 17%; }
@@ -106,11 +106,11 @@
     .wth__col--icon { display: none; }
 
     /* время суток */
-    .wth__time { font: 18px/21px "source sans pro"; margin: 0 0 15px 0; }
+    .wth__time { font: 18px/21px arial; margin: 0 0 15px 0; }
     /* температура */
-    .wth__temp { font: 18px/31px "source sans pro"; padding: 0 45px 0 0; margin: 0 0 10px 0; }
+    .wth__temp { font: 18px/31px arial; padding: 0 45px 0 0; margin: 0 0 10px 0; }
     /* текстовое описание погоды */
-    .wth__text-descr { font: 300 15px/17px "source sans pro"; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
+    .wth__text-descr { font: 300 15px/17px arial; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
     .wth__temp:after { content: ""; width: 35px; height: 35px; background-repeat: no-repeat; position: absolute; margin: -2px 0 0 10px; }
 
 
@@ -126,7 +126,7 @@
 
     /* Инпут для указания города */
     .weather__city { margin: 18px 0 0 0; display: flex; justify-content: center; }
-    .weather__city-input { width: 180px; font: 400 16px/35px arial; border: 1px solid #ccc; border-radius: 5px 0 0 5px; padding: 0 18px; }
+    .weather__city-input { width: 180px; font: 400 16px/35px arial; border: 1px solid #ccc; border-radius: 5px 0 0 5px; padding: 0 18px; height: 39px; }
     .weather__city-input:focus, .weather__city-input:hover { border-color: #83bffc; }
     .weather__city-submit { height: 39px; width: 100px; background: #09f; border-radius: 0 5px 5px 0; font: 400 16px/39px arial; color: #fff; text-align: center; transition: background 200ms; cursor: pointer; }
     .weather__city-submit:hover { background-color: #0086e3; }
@@ -137,12 +137,12 @@
     /* стили шапки день / ночь для мобилы */
     .wth__descr-wrap { padding: 0 10px; }
     .wth__descr-items { font: 0/0 a; text-align: right; }
-    .wth__descr { display: inline-block; vertical-align: top; font: 14px/16px "source sans pro"; width: 25%; text-align: center; }
+    .wth__descr { display: inline-block; vertical-align: top; font: 14px/16px arial; width: 25%; text-align: center; }
 
 
     /* погода на 10 дней */
     .wth__days { border-radius: 4px; overflow: hidden; position: relative; background: #fff; margin: 0 0 20px 0; }
-    .wth__day { font: 0/0 a; border-bottom: 1px solid #ccc; padding: 15px 10px; transition: background-color 250ms; }
+    .wth__day { display: flex; align-items: center; border-bottom: 1px solid #ccc; padding: 15px 10px; transition: background-color 250ms; }
     .wth__day:last-child { border-bottom: none; }
 
     /* стили колонок */
@@ -152,15 +152,15 @@
     .wth__col--night { color: #ccc; }
 
     /* дата */
-    .wth__date { font: 36px/36px "source sans pro"; letter-spacing: -0.05em; }
-    .wth__month { font: 16px/16px "source sans pro"; }
-    .wth__week { font: 16px/16px "source sans pro"; color: #ccc; }
+    .wth__date { font: 36px/36px arial; letter-spacing: -0.05em; }
+    .wth__month { font: 16px/16px arial; }
+    .wth__week { font: 16px/16px arial; color: #ccc; }
 
 
     /* время суток */
     .wth__time { display: none; }
     /* температура */
-    .wth__temp { font: 18px/21px "source sans pro"; text-align: center; }
+    .wth__temp { font: 18px/21px arial; text-align: center; }
     .wth__temp:after { display: none; }
     .wth__temp div { line-height: 15px; margin: 0 0 8px 0; }
     /* текстовое описание погоды */
