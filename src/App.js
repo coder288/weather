@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import './reset.css';
 
-
 import Header from './components/Header/Header';
 import Loader from './components/Loader/Loader';
 import { fetchWeather, loading, saveCityNameInState, saveWeatherInState } from "./redux/actions/actions";
@@ -76,7 +75,7 @@ function App({dispatch}) {
     };
 
     // Получаем координаты пользователя и записываем их в localStorage
-    navigator.geolocation.getCurrentPosition( geoSuccess, geoError );
+    navigator.geolocation.getCurrentPosition( geoSuccess, geoError, { timeout: 10 * 1000 } );
 
     if (isLoading) {
         return <Loader />

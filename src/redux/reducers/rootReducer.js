@@ -22,6 +22,8 @@ export const rootReducer = (state = initialState, action) => {
             return Object.assign({}, state, { openSources: action.payload });
         case 'CHANGE_SOURCE':
             return Object.assign({}, state, { source: action.payload });
+        case 'SAVE_COORDS':
+            return Object.assign({}, state, { coords: action.payload });
         default:
             return state;
     }

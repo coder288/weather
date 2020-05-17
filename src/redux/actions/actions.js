@@ -32,3 +32,14 @@ export const changeSource = source => ({
     type: 'CHANGE_SOURCE',
     payload: source
 });
+
+export const getCoords = (city, source) => ({
+    type: 'GET_COORDS',
+    city,
+    source
+});
+
+export const saveCoords = coords => ({
+    type: 'SAVE_COORDS',
+    payload: coords
+});

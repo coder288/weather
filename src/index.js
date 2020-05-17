@@ -5,11 +5,12 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import App from './App';
 import { rootReducer } from "./redux/reducers/rootReducer";
-import {watchFetchWeather} from "./redux/sagas/sagas";
+import { watchFetchWeather, watcherGetCoords } from "./redux/sagas/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(watchFetchWeather);
+sagaMiddleware.run(watcherGetCoords);
 
 render(
   <Provider store={ store }>

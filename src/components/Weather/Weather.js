@@ -1,11 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './weather.css';
+import {getCoords} from "../../redux/actions/actions";
 
 const Weather = () => {
 
-    let weatherData = useSelector(state => state.weather);
-    let city = useSelector(state => state.city);
+    // Инпут для ввода названия города
+    const cityInput = useRef(null);
+
+    const dispatch = useDispatch();
+
+    const weatherData = useSelector(state => state.weather);
+    const city = useSelector(state => state.city);
+    const source = useSelector(state => state.source);
+
 
     let months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
@@ -32,7 +40,15 @@ const Weather = () => {
 
     if (!weatherData.days) {
         return(
-            <div className='weather__alert'>Возникла ошибка!<br /><br />Попробуйте обновить страницу.</div>
+            <>
+                <div className='weather__alert'>Возможно, у вас отключено<br /> определение местоположения в браузере.<br /><br />Попробуйте обновить страницу<br /> или укажите ваш город вручную.</div>
+                <div className="weather__city">
+                    <input type="text" className="weather__city-input" ref={ cityInput }/>
+                    <div className="weather__city-submit" onClick={
+                        () => dispatch(getCoords(cityInput.current.value, source))
+                    }>Сохранить</div>
+                </div>
+            </>
         );
     }
 

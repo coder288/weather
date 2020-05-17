@@ -69,6 +69,13 @@
     /* Не получили данные */
     .weather__alert { margin: 50px 0 0 0; text-align: center; font: 600 45px/60px arial; }
 
+    /* Инпут для указания города */
+    .weather__city { margin: 28px 0 0 0; display: flex; justify-content: center; }
+    .weather__city-input { width: 250px; font: 400 18px/35px arial; border: 1px solid #ccc; border-radius: 5px 0 0 5px; padding: 0 18px; }
+    .weather__city-input:focus, .weather__city-input:hover { border-color: #83bffc; }
+    .weather__city-submit { height: 39px; width: 150px; background: #09f; border-radius: 0 5px 5px 0; font: 400 18px/39px arial; color: #fff; text-align: center; transition: background 200ms; cursor: pointer; }
+    .weather__city-submit:hover { background-color: #0086e3; }
+
     /* Заголовок */
     .weather__title { font: 600 45px/56px arial; margin: 25px 0 28px 0; text-align: center; }
 
@@ -115,7 +122,15 @@
 /* MOBILE */
 @media screen and (max-width: 1000px) {
     /* Данные с сервера не получены */
-    .weather__alert { margin: 30px 0 0 0; text-align: center; font: 600 28px/32px arial; padding: 0 20px; }
+    .weather__alert { margin: 30px 0 0 0; text-align: center; font: 600 18px/24px arial; padding: 0 20px; }
+
+    /* Инпут для указания города */
+    .weather__city { margin: 18px 0 0 0; display: flex; justify-content: center; }
+    .weather__city-input { width: 180px; font: 400 16px/35px arial; border: 1px solid #ccc; border-radius: 5px 0 0 5px; padding: 0 18px; }
+    .weather__city-input:focus, .weather__city-input:hover { border-color: #83bffc; }
+    .weather__city-submit { height: 39px; width: 100px; background: #09f; border-radius: 0 5px 5px 0; font: 400 16px/39px arial; color: #fff; text-align: center; transition: background 200ms; cursor: pointer; }
+    .weather__city-submit:hover { background-color: #0086e3; }
+
     /* Заголовок */
     .weather__title { font: 600 28px/32px arial; margin: 25px 0 28px 0; text-align: center; }
 
